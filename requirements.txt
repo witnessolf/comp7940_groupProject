@@ -1,3 +1,5 @@
+anyio==3.5.0
 telegram
 configparser
-redis
+firebase-admin==5.2.0
+urllib3==1.26.6

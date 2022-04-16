@@ -52,7 +52,7 @@ def respond():
             bot.sendMessage(chat_id=chat_id, text=msg)
         if texts[0] == '/getComments':
             if len(texts) == 1:
-                bot.sendMessage(chat_id=chat_id, text='Usage: /getComment <title>')
+                bot.sendMessage(chat_id=chat_id, text='Usage: /getComments <title>')
                 return 'error'
             getComments(texts[1], chat_id)
         if texts[0] == '/getImgs':
@@ -69,7 +69,7 @@ def respond():
 def start(chat_id):
     bot.sendMessage(chat_id=chat_id, text=" Currently the robot only provides the following functions:")
     bot.sendMessage(chat_id=chat_id, text="(1) Command /comment <title:comment> : Review the TV show \"title\"")
-    bot.sendMessage(chat_id=chat_id, text="(2) Command /getComment <title> :  Get comments on the TV show \"title\"")
+    bot.sendMessage(chat_id=chat_id, text="(2) Command /getComments <title> :  Get comments on the TV show \"title\"")
     bot.sendMessage(chat_id=chat_id, text="(3) Command /getImgs <number> :  Get hiking photos shared by others")
     bot.sendMessage(chat_id=chat_id, text="(4) Send a hiking photo directly and share it with others")
 

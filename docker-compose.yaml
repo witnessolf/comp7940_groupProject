@@ -1,0 +1,22 @@
+version: '3'
+services:
+  chatbot:
+    image: mysqlbotcr.azurecr.io/mysqlchatbot-img:latest
+    environment:
+      - HOST=db:3306
+      - USER=wordpress
+      - PASSWORD=wordpress
+    depends_on:
+      - db
+  db:
+    image: mysql:5.7
+    volumes:
+      - db_data:/var/lib/mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: somewordpress
+      MYSQL_DATABASE: wordpress
+      MYSQL_USER: wordpress
+      MYSQL_PASSWORD: wordpress
+volumes:
+  db_data:

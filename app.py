@@ -9,14 +9,11 @@ import urllib
 from io import BytesIO
 import logging
 
-
 global bot
 global TOKEN
-global redis1
 TOKEN = os.environ['ACCESS_TOKEN']
 URL = os.environ['URL']
 bot = telegram.Bot(token=TOKEN)
-
 app = Flask(__name__)
 
 cred = credentials.Certificate('./serviceAccount.json')
@@ -47,8 +44,6 @@ def respond():
         texts = text.split(' ', 1)
         if texts[0] == '/start':
             start(chat_id)
-        if texts[0] == '/add':
-            add(chat_id, texts[1])
         if texts[0] == '/comment':
             if len(texts) == 1:
                 bot.sendMessage(chat_id=chat_id, text='Usage: /comment <title:comment>')
@@ -77,13 +72,6 @@ def start(chat_id):
     bot.sendMessage(chat_id=chat_id, text="(2) Command /getComments <title> :  Get comments on the TV show \"title\"")
     bot.sendMessage(chat_id=chat_id, text="(3) Command /getImgs <number> :  Get hiking photos shared by others")
     bot.sendMessage(chat_id=chat_id, text="(4) Send a hiking photo directly and share it with others")
-
-
-def add(chat_id, msg):
-    global redis1
-    logging.info(msg)
-    redis1.incr(msg)
-    bot.sendMessage(chat_id=chat_id, text='You have said ' + msg + ' for ' + redis1.get(msg).decode('UTF-8') + ' times.')
 
 
 def comment(msg):

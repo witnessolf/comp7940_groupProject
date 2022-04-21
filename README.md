@@ -6,11 +6,10 @@ Group member:</br>
 &ensp;HE QIWEI &ensp;21441057 &ensp;github_id: Jackqhe</br>
 &ensp;ZHENG ZEQUAN &ensp;21410836 &ensp;github_id: ZhengZequan3</br>
 ### Project introduction
-This project has already been deployed to the Mircsoft Azzure platform via Docker.</br>
+This chatbot enable user to read or write a TV show review and share a hiking route and photos to other users.</br>
+This project has already been deployed to the Microsoft Azzure platform via Docker.</br>
 You can send message to the chatbot https://t.me/gsdgvs_bot.</br>
 Once the chatbot doesn't reply, you are suppoesed to send a POST request to https://testchatbot-comp7940.azurewebsites.net/set_webhook.
-
-This chatbot enable user to read or write a TV show review and share a hiking route and photos to other users.
 
 ### Supported Commands
 (1) Commmad /start : get introduction of the chatbot </br>
